@@ -86,37 +86,37 @@
     <div class="soundboard">
 
       <div class="row">
-        <button onclick="toggleAudio('drumroll')" type="button">Drumroll</button>
-        <button onclick="toggleAudio('gong')" type="button">Gong</button>
-        <button onclick="toggleAudio('bugle')" type="button">Bugle</button>
+        <button onclick="toggleAudio('drumroll', 0)" type="button">Drumroll</button>
+        <button onclick="toggleAudio('gong', 1)" type="button">Gong</button>
+        <button onclick="toggleAudio('bugle', 2)" type="button">Bugle</button>
       </div>
 
       <div class="row">
-        <button onclick="toggleAudio('bass-drum')" type="button">Bass Drum</button>
-        <button onclick="toggleAudio('congas')" type="button">Congas</button>
-        <button onclick="toggleAudio('female-opera')" type="button">Female Opera Singer</button>
+        <button onclick="toggleAudio('bass-drum', 3)" type="button">Bass Drum</button>
+        <button onclick="toggleAudio('congas', 4)" type="button">Congas</button>
+        <button onclick="toggleAudio('female-opera', 5)" type="button">Female Opera Singer</button>
       </div>
 
       <div class="row">
-        <button onclick="toggleAudio('harp')" type="button">Harp</button>
-        <button onclick="toggleAudio('military-drum')" type="button">Military Drums</button>
-        <button onclick="toggleAudio('tap-dancing')" type="button">Tap Dancing</button>
+        <button onclick="toggleAudio('harp', 6)" type="button">Harp</button>
+        <button onclick="toggleAudio('military-drum', 7)" type="button">Military Drums</button>
+        <button onclick="toggleAudio('tap-dancing', 8)" type="button">Tap Dancing</button>
       </div>
 
     </div>
 
   <script>
-    let playing = false;
+    let playing = [ false * 9 ];
 
-    function toggleAudio(sound) { 
+    function toggleAudio(sound, number) { 
       var audio = document.getElementById(sound); 
-      if (playing) {
+      if (playing[number]) {
         audio.pause();
-        playing = false;
+        playing[number] = false;
       }
       else {
         audio.play(); 
-        playing = true;
+        playing[number] = true;
       }
     } 
   </script>
