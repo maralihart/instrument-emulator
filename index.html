@@ -6,7 +6,119 @@
     <title>repl.it</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
+
   <body>
-    <script src="script.js"></script>
+
+    <style>
+      body {
+        background-color: black;
+        padding-top: 30px;
+      }
+      h1 {
+        color: #FFC5EE;
+        text-shadow: 2px 2px #D865B6;
+        text-align: center;
+      }
+      button {
+        height: 100px;
+        width: 100px;
+        background-color: white;
+        border: 3px outset #BBECFE;
+        border-radius: 10px;
+        margin: 10px 10px;
+      }
+      button:hover {
+        background-color: #EEE;
+        border: 3px inset #BBECFE;
+      }
+      .row {
+        display: flex;
+        flex-direction: row;
+      }
+      .soundboard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;
+      }
+    </style>
+    
+    <!-- AUDIO FILES GO HERE -->
+    <audio id="drumroll">
+      <source src="./sounds/drumroll.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="gong">
+      <source src="./sounds/chinese-gong.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="bugle">
+      <source src="./sounds/bugle-first-call.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="congas">
+      <source src="./sounds/congas.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="bass-drum">
+      <source src="./sounds/bass-drum.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="female-opera">
+      <source src="./sounds/female-opera.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="harp">
+      <source src="./sounds/harp.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="military-drum">
+      <source src="./sounds/military-drum.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="tap-dancing">
+      <source src="./sounds/tap-dancing.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+
+    <h1>MARA'S SOUNDBOARD</h1>
+
+    <div class="soundboard">
+
+      <div class="row">
+        <button onclick="toggleAudio('drumroll')" type="button">Drumroll</button>
+        <button onclick="toggleAudio('gong')" type="button">Gong</button>
+        <button onclick="toggleAudio('bugle')" type="button">Bugle</button>
+      </div>
+
+      <div class="row">
+        <button onclick="toggleAudio('bass-drum')" type="button">Bass Drum</button>
+        <button onclick="toggleAudio('congas')" type="button">Congas</button>
+        <button onclick="toggleAudio('female-opera')" type="button">Female Opera Singer</button>
+      </div>
+
+      <div class="row">
+        <button onclick="toggleAudio('harp')" type="button">Harp</button>
+        <button onclick="toggleAudio('military-drum')" type="button">Military Drums</button>
+        <button onclick="toggleAudio('tap-dancing')" type="button">Tap Dancing</button>
+      </div>
+
+    </div>
+
+  <script>
+    let playing = false;
+
+    function toggleAudio(sound) { 
+      var audio = document.getElementById(sound); 
+      if (playing) {
+        audio.pause();
+        playing = false;
+      }
+      else {
+        audio.play(); 
+        playing = true;
+      }
+    } 
+  </script>
   </body>
 </html>
